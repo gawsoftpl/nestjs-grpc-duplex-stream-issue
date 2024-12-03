@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package requestshistory;
+
+service RequestsHistoryService {
+  // Add new request history
+  // Send requests to add group by params
+  rpc Create(stream RequestCreateRequest) returns (stream RequestsCreateResponse) {};
+}
+
+message RequestCreateRequest{
+    string request_id = 1;
+}
+
+message RequestsCreateResponse {
+    string request_id = 1;
+    bool success = 2;
+}
