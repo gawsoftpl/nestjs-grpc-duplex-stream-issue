@@ -32,10 +32,12 @@ function main() {
     console.log('Stream ended.');
   });
 
+  // Should send 4 messages, but close after first message
   call.write({
     "request_id": "1"
   })
   
+  // Below messages will not send, because after send first message channel connection is closed
   call.write({
     "request_id": "2"
   })
